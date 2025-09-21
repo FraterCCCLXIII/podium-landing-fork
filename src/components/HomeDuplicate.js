@@ -34,14 +34,14 @@ const HomeDuplicate = () => {
     <div className="HomeDuplicate">
       <main>
         <Intro />
-        <VideoTestimonials />
         <div ref={featuresRef}> 
           <Features />
         </div>
+        <ClipsSection />
+        <VideoTestimonials />
         <div className='bg-white'>
           <Calculator />
         </div>
-        <ClipsSection />
         <FeaturedOn />
         <CTA />
         <div className='bg-gray-50'>

@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 
 const VideoCarousel = () => {
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Array of video data (video URL, name, and podcast title)
   const videos = [
@@ -43,6 +44,7 @@ const VideoCarousel = () => {
   ];
 
   const carouselRef = useRef(null);
+  const containerRef = useRef(null);
   const [showLeftButton, setShowLeftButton] = useState(false);
   const [showRightButton, setShowRightButton] = useState(true);
 
@@ -79,6 +81,33 @@ const VideoCarousel = () => {
     };
   }, []);
 
+  // Intersection Observer for fade-in animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Start animation slightly before element is fully visible
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   // Scroll to the right by the full carousel width
   const scrollRight = () => {
     if (carouselRef.current) {
@@ -100,7 +129,14 @@ const VideoCarousel = () => {
   };
 
   return (
-    <div className="relative w-full">
+    <div 
+      ref={containerRef}
+      className={`relative w-full transition-all duration-1000 ease-out ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-8'
+      }`}
+    >
       {/* Scrollable container */}
       <div
         ref={carouselRef}
