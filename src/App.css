@@ -103,3 +103,24 @@ main {
   transition: transform 0.1s ease-out;
   filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
 }
+
+/* Logo carousel scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+/* Pause animation on hover */
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
