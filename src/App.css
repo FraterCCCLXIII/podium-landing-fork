@@ -114,10 +114,19 @@ main {
   }
 }
 
+@keyframes logoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .animate-scroll {
-  animation: scroll 25s linear infinite;
-  display: flex;
-  width: max-content;
+  animation: scroll 25s linear infinite !important;
+  display: flex !important;
+  width: max-content !important;
 }
 
 /* Pause animation on hover */
