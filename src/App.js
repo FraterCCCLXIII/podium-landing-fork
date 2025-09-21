@@ -7,6 +7,7 @@ import ApiPage from './components/api/Api';
 import Header from "./components/Header.js";
 import LoggedInHeader from './components/LoggedInHeader.js';
 import Footer from "./components/Footer.js";
+import CTA from "./components/CTA.js";
 import { ThemeProvider } from './contexts/ThemeContext.js';
 
 function App() {
@@ -95,6 +96,8 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/api" element={<ApiPage />} />
       </Routes>
+
+      <CTA />
 
       <footer className="border-t border-gray-300 dark:border-dark-border bg-white dark:bg-dark-bg-secondary transition-colors duration-300">
         <Footer />

@@ -66,23 +66,19 @@ const Calculator = () => {
                     className="hidden"
                   />
                   <div
-                    className={`w-6 h-6 items-center z-10 justify-center bg-white rounded-full border-2 ${
+                    className={`w-6 h-6 items-center z-10 justify-center rounded-full ${
                       selectedPlan === index
-                        ? 'border-white'
-                        : 'border-gray-300'
+                        ? ''
+                        : 'border-2 border-white bg-white dark:border-white dark:bg-dark-bg-secondary'
                     }`}
+                    style={selectedPlan === index ? { backgroundColor: 'white' } : {}}
                   >
-                    <div
-                      className={`w-3 h-3 m-1 rounded-full ${
-                        selectedPlan === index ? 'bg-white' : ''
-                      }`}
-                    ></div>
                   </div>
                   <span
                     className={`text-sm mt-2 ${
                       selectedPlan === index
-                        ? 'font-bold text-white'
-                        : 'font-semibold text-gray-300'
+                        ? 'font-bold text-white dark:text-dark-text'
+                        : 'font-semibold text-gray-300 dark:text-dark-text-secondary'
                     }`}
                   >
                     {plan}

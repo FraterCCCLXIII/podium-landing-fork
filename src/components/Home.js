@@ -47,7 +47,6 @@ const Home = () => {
           <Testimonials1 />
         </div>
         <Faqs />
-        <CTA />
         <ApiSection />
       </main>
     </div>

@@ -12,9 +12,9 @@ const WordCycler = ({ words, delays = [], defaultDelay = 2000 }) => {
 
   // Breakpoint heights
   const heightMap = {
-    default: 48, // px for base height
-    md: 80,
-    lg: 96,
+    default: 40, // px for base height
+    md: 64,
+    lg: 80,
   };
 
   // Function to detect active height based on breakpoint
@@ -67,7 +67,7 @@ const WordCycler = ({ words, delays = [], defaultDelay = 2000 }) => {
   }, [currentIndex, currentDelay, delays, defaultDelay, words.length]);
 
   return (
-    <div className="h-12 md:h-20 lg:h-24 overflow-hidden relative text-3xl md:text-5xl lg:text-7xl items-center justify-center text-center font-bold text-indigo-600">
+    <div className="h-10 md:h-16 lg:h-20 overflow-hidden relative text-2xl md:text-4xl lg:text-6xl items-center justify-center text-center font-medium text-indigo-600 dark:text-indigo-400">
       <div
         className={`w-full items-center justify-center ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
         style={{
@@ -89,7 +89,7 @@ const WordCycler = ({ words, delays = [], defaultDelay = 2000 }) => {
           return (
             <div
               key={index}
-              className={`h-12 md:h-20 lg:h-24 flex items-center justify-center`}
+              className={`h-10 md:h-16 lg:h-20 flex items-center justify-center`}
               style={{
                 ...transitionStyle,
                 opacity,

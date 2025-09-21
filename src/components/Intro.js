@@ -65,9 +65,13 @@ const Intro = () => {
               </div>
               <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('Used by over 20,000 creators and brands')}</p>
             </div>
-        <h1 className="text-3xl md:text-5xl lg:text-7xl text-center font-bold text-black dark:text-white">{t('Create 100x more content from your')}</h1>
+        <h1 className="text-2xl md:text-4xl lg:text-6xl text-center font-medium text-black dark:text-white">{t('Get more from your')}</h1>
         <WordCycler words={words} delays={delays} defaultDelay={1000} />
-      <p className='flex max-w-96 my-8 text-center text-xl font-light md:font-regular text-gray-600 dark:text-gray-300'>{t('Get instant transcript, show notes, clips, chapters and more!')}</p>
+      <p className='flex max-w-4xl my-8 text-center text-xl font-light md:font-regular text-gray-600 dark:text-gray-300'>
+        {t('The ultimate tool for Podcasters, Marketers, and Content Creators—')}
+        <br />
+        {t('Get instant transcripts, show notes, clips, chapters and more!')}
+      </p>
       <div className='flex flex-col w-full sm:w-fit items-center justify-center gap-2'>
             <button
               className='gradient-button mt-4 flex h-12 w-full sm:w-fit sm:px-8 bg-gradient-to-r from-[#007AFF] to-[#F300FF] text-white font-medium text-xl rounded-lg shadow-[0_0_5px_rgba(98,0,128,0.6)] hover:shadow-[0_0_10px_rgba(98,0,128,0.6)] items-center justify-center'
