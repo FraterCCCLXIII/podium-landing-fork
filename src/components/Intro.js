@@ -3,12 +3,14 @@ import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import WordCycler from './WordCycler';
 import LogoCarousel from './LogoCarousel';
+import { useTheme } from '../contexts/ThemeContext';
 
 const words = ["Customer Calls", "Podcasts", "Videos", "Spiritual Talks", "Educational Lectures", "Meetings"];
 const delays = [50, 2000, 2000, 2000, 2000, 2000, 1000];
 
 const Intro = () => {
   const { t } = useTranslation();
+  const { isDark } = useTheme();
   const dashboardRef = useRef(null);
 
   useEffect(() => {
@@ -61,7 +63,8 @@ const Intro = () => {
       <p className='flex max-w-96 my-8 text-center text-xl font-light md:font-regular text-gray-600 dark:text-gray-300'>{t('Get instant transcript, show notes, clips, chapters and more!')}</p>
       <div className='flex flex-col w-full sm:w-fit items-center justify-center gap-2'>
         <button
-          className='mt-4 flex h-12 w-full sm:w-fit sm:px-8 bg-gradient-to-r from-[#007AFF] to-[#F300FF] dark:bg-white dark:text-black text-white font-medium text-xl rounded-lg shadow-[0_0_5px_rgba(98,0,128,0.6)] hover:shadow-[0_0_10px_rgba(98,0,128,0.6)] items-center justify-center'
+          className='gradient-button mt-4 flex h-12 w-full sm:w-fit sm:px-8 bg-gradient-to-r from-[#007AFF] to-[#F300FF] text-white font-medium text-xl rounded-lg shadow-[0_0_5px_rgba(98,0,128,0.6)] hover:shadow-[0_0_10px_rgba(98,0,128,0.6)] items-center justify-center'
+          style={isDark ? { background: 'white', color: 'black' } : {}}
           onClick={() => window.location.href = 'https://podium.page/create-account'}
         >
           {t('Try it for free →')}

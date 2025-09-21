@@ -124,3 +124,24 @@ main {
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+
+/* Force gradient button to be white in dark mode */
+.dark .gradient-button {
+  background: white !important;
+  color: black !important;
+  background-image: none !important;
+}
+
+/* Additional specificity for dark mode button */
+html.dark .gradient-button {
+  background: white !important;
+  color: black !important;
+  background-image: none !important;
+}
+
+/* Data theme selector for extra specificity */
+[data-theme="dark"] .gradient-button {
+  background: white !important;
+  color: black !important;
+  background-image: none !important;
+}
