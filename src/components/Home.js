@@ -6,7 +6,6 @@ import Features from './Features';
 import FeaturedOn from './FeaturedOn';
 import CTA from './CTA';
 import Testimonials1 from './Testimonials1';
-import Testimonials2 from './Testimonials2';
 import Faqs from './Faqs';
 import ApiSection from './ApiSection';
 import ClipsSection from './ClipsSection';
@@ -48,7 +47,6 @@ const Home = () => {
           <Testimonials1 />
         </div>
         <Faqs />
-        <Testimonials2 />
         <CTA />
         <ApiSection />
       </main>

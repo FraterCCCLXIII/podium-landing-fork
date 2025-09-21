@@ -7,7 +7,7 @@ const FeaturedOn = () => {
     return (
       <section className='FeaturedOn pb-20' style={{ backgroundColor: '#0d0d0d' }}>
         <div className='flex flex-col w-full items-center justify-center px-16 py-16 text-center'>
-            <h2 className='mt-24 text-3xl md:text-4xl lg:text-5xl font-bold text-white'>{t('Create more from your')} <span className='text-indigo-400'>{t('content')}</span></h2>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white'>{t('Create more from your')} <span className='text-indigo-400'>{t('content')}</span></h2>
             <div className='flex flex-col max-w-96 bg-gray-50 rounded-lg items-center justify-center space-y-6 mt-12 p-8 border border-gray-200'>
                 <p className='text-2xl leading-8 font-medium text-center text-black'>{t('I absolutely love Longformer. It easily saves me over $150 per episode and what used to take hours, literally takes minutes.')}</p>
                 <img 

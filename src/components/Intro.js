@@ -79,13 +79,7 @@ const Intro = () => {
       </div>
       </div>
       <div className='my-4 flex flex-col items-center justify-center'>
-        <div className='w-full'>
-          <h2 className="text-black dark:text-white text-center text-xl font-semibold mb-4 px-8">
-            {t('Trusted by leading companies')}
-          </h2>
-          <LogoCarousel />
-        </div>
-        <div className='mt-8 mx-auto px-4 hidden md:flex max-w-5xl'>
+        <div className='mx-auto px-4 hidden md:flex max-w-5xl'>
             <img
                 ref={dashboardRef}
                 src="https://framerusercontent.com/images/XEmv5vqoiWWArC0PPHNUalrY10U.svg"
@@ -96,10 +90,16 @@ const Intro = () => {
                   opacity: 1,
                   visibility: 'visible',
                   display: 'block',
-                  minHeight: '200px',
-                  minWidth: '200px'
+                  width: '1400px',
+                  height: 'auto'
                 }}
             />
+        </div>
+        <div className='w-full'>
+          <h2 className="text-black dark:text-white text-center text-xl font-semibold mb-4 px-8 mt-8">
+            {t('Trusted by leading companies')}
+          </h2>
+          <LogoCarousel />
         </div>
       </div>
     </section>
