@@ -5,9 +5,9 @@ const FeaturedOn = () => {
     const { t } = useTranslation();
   
     return (
-      <section className='FeaturedOn bg-gradient-to-br from-purple-200/20 to-indigo-500/20 pb-20 rounded-tl-[78px]'>
+      <section className='FeaturedOn pb-20' style={{ backgroundColor: '#0d0d0d' }}>
         <div className='flex flex-col w-full items-center justify-center px-16 py-16 text-center'>
-            <h2 className='text-3xl md:text-5xl lg:text-6xl font-bold text-black'>{t('Proudly featured on')}</h2>
+            <h2 className='text-3xl md:text-5xl lg:text-6xl font-bold text-white'>{t('Proudly featured on')}</h2>
             <div className='mt-12 flex w-full flex-wrap items-center justify-center max-w-5xl gap-12'>
                 <svg width="195" height="46" viewBox="0 0 512 121" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_10463_2946)">
@@ -89,17 +89,17 @@ const FeaturedOn = () => {
                     </defs>
                 </svg>
             </div>
-            <h2 className='mt-24 text-3xl md:text-4xl lg:text-5xl font-bold text-black'>{t('Create a')} <span className='text-indigo-600'>{t('revolution')}</span><br></br>{t('in your workflow.')}</h2>
-            <div className='flex flex-col max-w-96 bg-gray-50 rounded-lg items-center justify-center space-y-6 mt-12 p-8'>
-                <p className='text-2xl leading-8 font-medium text-center'>{t('I absolutely love Longformer. It easily saves me over $150 per episode and what used to take hours, literally takes minutes.')}</p>
+            <h2 className='mt-24 text-3xl md:text-4xl lg:text-5xl font-bold text-white'>{t('Create more from your')} <span className='text-indigo-400'>{t('content')}</span></h2>
+            <div className='flex flex-col max-w-96 bg-gray-50 rounded-lg items-center justify-center space-y-6 mt-12 p-8 border border-gray-200'>
+                <p className='text-2xl leading-8 font-medium text-center text-black'>{t('I absolutely love Longformer. It easily saves me over $150 per episode and what used to take hours, literally takes minutes.')}</p>
                 <img 
                     src="https://framerusercontent.com/images/gF1UCai096oK5RzbllskSNuEKgU.jpeg?scale-down-to=512" 
                     alt="Derek Gehl Portrait" 
                     className="w-28 h-28 rounded-full" 
                 />
                 <div>
-                    <p className='text-xl font-semibold text-center'>Derek Gehl</p>
-                    <p className='text-xl font-medium text-center text-gray-400'>DerekGehl.com</p>
+                    <p className='text-xl font-semibold text-center text-black'>Derek Gehl</p>
+                    <p className='text-xl font-medium text-center text-gray-600'>DerekGehl.com</p>
                 </div>
             </div>
         </div>

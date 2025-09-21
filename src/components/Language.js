@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const Language = () => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   // Function to change language
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
     setIsOpen(false); // Close the dropdown after language is selected
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const currentLanguage = i18n.language;
 
@@ -19,9 +37,9 @@ const Language = () => {
   };
 
   return (
-    <section className='relative'>
+    <section className='relative' ref={dropdownRef}>
       {/* Trigger button */}
-      <button onClick={toggleDropdown} className='flex items-center space-x-2'>
+      <button onClick={toggleDropdown} className='flex items-center space-x-2 text-white language-button px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200'>
         <svg
           width="24"
           height="24"
@@ -31,14 +49,14 @@ const Language = () => {
         >
           <path
             d="M3 5H15M9 3V5M10.0482 14.5C8.52083 12.9178 7.28073 11.0565 6.41187 9M12.5 18H19.5M11 21L16 11L21 21M12.7511 5C11.7831 10.7702 8.06969 15.6095 3 18.129"
-            stroke="#9CA3AF"
+            stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M3 5H15M9 3V5M10.0482 14.5C8.52083 12.9178 7.28073 11.0565 6.41187 9M12.5 18H19.5M11 21L16 11L21 21M12.7511 5C11.7831 10.7702 8.06969 15.6095 3 18.129"
-            stroke="black"
+            stroke="currentColor"
             strokeOpacity="0.2"
             strokeWidth="2"
             strokeLinecap="round"
@@ -49,11 +67,11 @@ const Language = () => {
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className='absolute mt-4 -right-2 bg-white border border-gray-200 shadow-lg rounded-md w-48'>
+        <div className='absolute mt-4 -right-2 bg-white dark:bg-dark-bg border border-gray-200 dark:border-dark-border shadow-lg rounded-md dropdown-menu w-48 overflow-hidden'>
           <ul>
   <li>
     <button
-      className='w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between'
+      className='w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-hover flex justify-between text-gray-900 dark:text-dark-text'
       onClick={() => changeLanguage('en')}
     >
       English
@@ -67,7 +85,7 @@ const Language = () => {
   </li>
   <li>
     <button
-      className='w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between'
+      className='w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-hover flex justify-between text-gray-900 dark:text-dark-text'
       onClick={() => changeLanguage('fr')}
     >
       Français
@@ -81,7 +99,7 @@ const Language = () => {
   </li>
   <li>
     <button
-      className='w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between'
+      className='w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-hover flex justify-between text-gray-900 dark:text-dark-text'
       onClick={() => changeLanguage('es')}
     >
       Español
@@ -95,7 +113,7 @@ const Language = () => {
   </li>
   <li>
     <button
-      className='w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between'
+      className='w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-hover flex justify-between text-gray-900 dark:text-dark-text'
       onClick={() => changeLanguage('pt')}
     >
       Português
@@ -109,7 +127,7 @@ const Language = () => {
   </li>
   <li>
     <button
-      className='w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between'
+      className='w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-hover flex justify-between text-gray-900 dark:text-dark-text'
       onClick={() => changeLanguage('it')}
     >
       Italiano
@@ -123,7 +141,7 @@ const Language = () => {
   </li>
   <li>
     <button
-      className='w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between'
+      className='w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-hover flex justify-between text-gray-900 dark:text-dark-text'
       onClick={() => changeLanguage('de')}
     >
       Deutsch
@@ -137,7 +155,7 @@ const Language = () => {
   </li>
   <li>
     <button
-      className='w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between'
+      className='w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-hover flex justify-between text-gray-900 dark:text-dark-text'
       onClick={() => changeLanguage('ru')}
     >
       Русский
@@ -151,7 +169,7 @@ const Language = () => {
   </li>
   <li>
     <button
-      className='w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between'
+      className='w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-hover flex justify-between text-gray-900 dark:text-dark-text'
       onClick={() => changeLanguage('zh')}
     >
       中文

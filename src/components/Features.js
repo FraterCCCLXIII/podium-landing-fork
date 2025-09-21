@@ -65,7 +65,7 @@ const Features = () => {
   const { t } = useTranslation();
 
     return (
-      <section className='Features bg-white rounded-tr-[78px]' style={{ marginTop: '-78px' }}>
+      <section className='Features bg-white'>
         <div className='flex flex-col w-full items-center text-center p-8 justify-center'>
             <p className='mt-8 text-sm md:text-base font-medium text-gray-400'>{t('YOUR NEW SUPERTOOLS')}</p>
             <h2 className='mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-black'>{t('Do more in less time')}</h2>

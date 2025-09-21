@@ -1,3 +1,313 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global dark theme styles */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* Ensure smooth transitions for all elements */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Remove default rounded corners for sharper, modern look */
+/* Removed global rule that was interfering with rounded corners */
+
+/* Dark theme scrollbar */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
+
+/* Enhanced dark theme button styles - exclude navigation, language buttons, and FAQ buttons */
+.dark button:not(nav button):not(.language-button):not(.faq-button) {
+  border-radius: 0;
+  background-color: white !important;
+  color: black !important;
+}
+
+.dark button:not(nav button):not(.language-button):not(.faq-button):hover {
+  background-color: #f0f0f0 !important;
+}
+
+/* Ensure logo is white in dark mode */
+.dark svg path[fill="currentColor"] {
+  fill: white !important;
+}
+
+/* Dark theme card styles */
+.dark .card {
+  background-color: #0d0d0d;
+  border: 1px solid #1a1a1a;
+}
+
+.dark .card:hover {
+  background-color: #111111;
+  border-color: #2a2a2a;
+}
+
+/* Dark theme input styles */
+.dark input, .dark textarea, .dark select {
+  background-color: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  color: #ffffff;
+  border-radius: 0;
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  border-color: #007AFF;
+  outline: none;
+}
+
+/* Dark theme link styles */
+.dark a {
+  color: #b3b3b3;
+}
+
+.dark a:hover {
+  color: #ffffff;
+}
+
+/* Dark theme gradient backgrounds */
+.dark .gradient-bg {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+}
+
+/* Dark theme shadows */
+.dark .shadow-custom {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.8), 0 2px 4px -1px rgba(0, 0, 0, 0.6);
+}
+
+/* Override all text-black classes in dark mode */
+.dark .text-black {
+  color: #ffffff !important;
+}
+
+/* Override all text-gray-600 classes in dark mode */
+.dark .text-gray-600 {
+  color: #b3b3b3 !important;
+}
+
+/* Override all text-gray-400 classes in dark mode */
+.dark .text-gray-400 {
+  color: #808080 !important;
+}
+
+/* Override all hover:text-black classes in dark mode */
+.dark .hover\:text-black:hover {
+  color: #ffffff !important;
+}
+
+/* Override all text-indigo classes in dark mode */
+.dark .text-indigo-600 {
+  color: #007AFF !important;
+}
+
+.dark .hover\:text-indigo-500:hover {
+  color: #0056CC !important;
+}
+
+/* Override all card backgrounds in dark mode */
+.dark .bg-white {
+  background-color: #0d0d0d !important;
+}
+
+/* Override all section backgrounds in dark mode */
+.dark .bg-gray-50 {
+  background-color: #111111 !important;
+}
+
+/* Override all border colors in dark mode */
+.dark .border-gray-200 {
+  border-color: #1a1a1a !important;
+}
+
+/* Button styling - 8px rounded corners */
+button.rounded-lg {
+  border-radius: 8px !important;
+}
+
+.dark button.rounded-lg {
+  border-radius: 8px !important;
+}
+
+/* General rounded-lg styling - maintain rounded corners */
+.rounded-lg {
+  border-radius: 8px !important;
+}
+
+.dark .rounded-lg {
+  border-radius: 8px !important;
+}
+
+/* Pill badge styling - maintain 100% rounded corners */
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
+.dark .rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* Dropdown menu styling - maintain rounded corners */
+.rounded-md,
+.dropdown-menu {
+  border-radius: 6px !important;
+}
+
+.dark .rounded-md,
+.dark .dropdown-menu,
+.dark section .dropdown-menu,
+.dark div.dropdown-menu {
+  border-radius: 6px !important;
+}
+
+/* Force rounded corners for dropdown menus */
+section .dropdown-menu.rounded-md {
+  border-radius: 6px !important;
+}
+
+.dark section .dropdown-menu.rounded-md {
+  border-radius: 6px !important;
+}
+
+/* Card styling - 1rem rounded corners */
+.rounded-2xl {
+  border-radius: 1rem !important;
+}
+
+.dark .rounded-2xl {
+  border-radius: 1rem !important;
+}
+
+/* Glass morphism effect */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Ensure glass effect works on all browsers */
+@supports not (backdrop-filter: blur(12px)) {
+  .backdrop-blur-md {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .dark .backdrop-blur-md {
+    background-color: rgba(26, 26, 26, 0.95);
+  }
+}
+
+/* Logo carousel animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Set all headings to font-weight 500 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500 !important;
+}
+
+/* Circular navigation buttons override */
+.video-carousel-nav-btn {
+  border-radius: 50% !important;
+}
+
+/* Dashboard image scroll-based animation */
+.dashboard-image {
+  /* Initial state - will be overridden by JavaScript */
+  transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) translateY(50px);
+  opacity: 0; /* Temporarily hidden */
+  visibility: hidden; /* Completely hidden from layout */
+  will-change: transform; /* Optimize for transform animations */
+  transform-style: preserve-3d; /* Enable 3D transforms */
+  transition: all 0.5s ease-in-out; /* Smooth hide animation */
+}
+
+/* Animation to hide dashboard image */
+@keyframes hideDashboard {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) translateY(50px) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) translateY(50px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) translateY(50px) scale(0.5);
+  }
+}
+
+.dashboard-image.hide-animation {
+  animation: hideDashboard 1s ease-in-out forwards;
+}
+
+/* Pulsing gradient animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Logo carousel scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Pause animation on hover */
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+.gradient-pulse {
+  animation: pulse 3s ease-in-out infinite;
+}

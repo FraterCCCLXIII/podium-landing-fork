@@ -6,7 +6,7 @@ const Testimonials1 = () => {
     const { t } = useTranslation();
   
     return (
-        <section className="Testimonials rounded-tl-[78px] bg-white">
+        <section className="Testimonials bg-white">
             <div className="flex flex-col items-center justify-center text-center py-16 px-8">
                 <p className='mt-8 text-sm md:text-base font-medium text-gray-400'>{t('TESTIMONIALS')}</p>
                 <h2 className='mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-black'>{t('Longformer empowers creators')}</h2>
