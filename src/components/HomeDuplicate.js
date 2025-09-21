@@ -12,7 +12,7 @@ import ApiSection from './ApiSection';
 import ClipsSection from './ClipsSection';
 import Calculator from './Calculator';
 
-const Home = () => {
+const HomeDuplicate = () => {
   const featuresRef = useRef(null); // Create a ref for the Features section
   const location = useLocation();
 
@@ -31,7 +31,7 @@ const Home = () => {
   }, [location]);
 
   return (
-    <div className="Home">
+    <div className="HomeDuplicate">
       <main>
         <Intro />
         <VideoTestimonials />
@@ -56,4 +56,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default HomeDuplicate;

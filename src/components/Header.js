@@ -55,6 +55,12 @@ const Header = () => {
                 <button className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => navigate('/#features')}>{t('What you get')}</button>
                 <button 
                   className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200"
+                  onClick={() => navigate('/home-duplicate')}
+                >
+                  {t('Home Duplicate')}
+                </button>
+                <button 
+                  className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200"
                   onClick={() => navigate('/pricing')}
                 >
                   {t('Pricing')}
@@ -94,6 +100,7 @@ const Header = () => {
       {menuOpen && (
         <div className="sm:hidden fixed inset-0 top-20 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-md flex flex-col justify-left text-left text-gray-400 dark:text-dark-text">
           <nav className="flex w-full flex-col space-y-6 text-lg items-left justify-left p-4">
+            <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => navigate('/home-duplicate')}>{t('Home Duplicate')}</button>
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/pricing'}>{t('Pricing')}</button>
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/api'}>{t('API')}</button>
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/blog'}>{t('Resources')}</button>
