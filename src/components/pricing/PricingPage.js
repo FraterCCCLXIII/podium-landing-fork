@@ -123,7 +123,7 @@ export default function PricingPage() {
                             ctaHrefOverride="https://podium.page/create-account"
                             planTitle="Trial"
                             ctaOverride={
-                                <div className="flex py-2 h-fit w-full bg-black text-center justify-center px-auto rounded-lg text-white border-2 border-black hover:bg-white hover:text-black cursor-pointer text-2xl font-medium">{ t("Try it free") }</div>
+                                <div className="flex py-2 h-fit w-full bg-black dark:bg-white text-center justify-center px-auto rounded-lg text-white dark:text-black border-2 border-black dark:border-gray-300 hover:bg-white dark:hover:bg-gray-100 hover:text-black dark:hover:text-black cursor-pointer text-2xl font-medium transition-colors duration-200">{ t("Try it free") }</div>
                             }
                             planHeader={
                                 <div className="flex flex-col w-full text-center my-auto items-center h-fit">
@@ -179,7 +179,7 @@ export default function PricingPage() {
                         isSliderVisible={false}
                         planTitle="Enterprise"
                         ctaOverride={
-                            <div className="flex py-2 h-fit w-full bg-white text-center justify-center px-auto rounded-lg text-black border-2 border-black hover:bg-black hover:text-white cursor-pointer text-2xl font-medium" onClick={() => {
+                            <div className="flex py-2 h-fit w-full bg-white dark:bg-white text-center justify-center px-auto rounded-lg text-black dark:text-black border-2 border-black dark:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-100 hover:text-black dark:hover:text-black cursor-pointer text-2xl font-medium transition-colors duration-200" onClick={() => {
                                 if (window.Intercom) {
                                   window.Intercom("show");
                                 }

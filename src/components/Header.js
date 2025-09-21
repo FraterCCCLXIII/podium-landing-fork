@@ -72,7 +72,7 @@ const Header = () => {
                   {t('API')}</button>
                 <button className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://podium.page/login'}>{t('Log In')}</button>
             </nav>
-            <button className='flex h-10 w-fit px-4 bg-white text-black text-base font-medium rounded-lg hover:bg-gray-200 transition-colors duration-200 items-center justify-center' onClick={() => window.location.href = 'https://podium.page/create-account'}>{t('Try it now')}</button>
+            <button className='flex h-10 w-fit px-4 bg-white dark:bg-white text-black text-base font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-100 transition-colors duration-200 items-center justify-center' onClick={() => window.location.href = 'https://podium.page/create-account'}>{t('Try it now')}</button>
           </div>
         </div>
 
@@ -107,7 +107,7 @@ const Header = () => {
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/affiliates'}>{t('Affiliate Program')}</button>
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/tos'}>{t('Terms of Service')}</button>
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/privacy-policy'}>{t('Privacy Policy')}</button>
-            <button className='my-4 flex h-12 w-full bg-white text-black font-medium text-xl rounded-lg hover:bg-gray-200 transition-colors duration-200 items-center justify-center' onClick={() => window.location.href = 'https://podium.page/create-account'}>{t('Try it now →')}</button>
+            <button className='my-4 flex h-12 w-full bg-white dark:bg-white text-black font-medium text-xl rounded-lg hover:bg-gray-200 dark:hover:bg-gray-100 transition-colors duration-200 items-center justify-center' onClick={() => window.location.href = 'https://podium.page/create-account'}>{t('Try it now →')}</button>
             <button className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://podium.page/login'}>{t('Log In')}</button>
           </nav>
         </div>

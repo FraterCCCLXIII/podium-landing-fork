@@ -21,7 +21,7 @@ const ApiSection = () => {
         <p className="mt-6 text-xl font-light text-gray-200">
           {t('Get instant access to Longformer API.')}
         </p>
-        <button className='my-12 flex h-12 w-full sm:w-fit sm:px-8 bg-white text-black font-medium text-xl rounded-lg shadow items-center justify-center' onClick={() => window.location.href = 'https://podium.page/create-account'}>{t('Try it now! →')}</button>
+        <button className='my-12 flex h-12 w-full sm:w-fit sm:px-8 bg-white dark:bg-white text-black font-medium text-xl rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-100 transition-colors duration-200 items-center justify-center' onClick={() => window.location.href = 'https://podium.page/create-account'}>{t('Try it now! →')}</button>
       </div>
     </section>
   );
