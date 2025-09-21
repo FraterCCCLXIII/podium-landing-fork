@@ -1,8 +1,8 @@
-// components/Intro.js
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import WordCycler from './WordCycler';
 import LogoCarousel from './LogoCarousel';
+import Starfield from './Starfield';
 import { useTheme } from '../contexts/ThemeContext';
 
 const words = ["Customer Calls", "Podcasts", "Videos", "Spiritual Talks", "Educational Lectures", "Meetings"];
@@ -53,8 +53,9 @@ const Intro = () => {
   }, []);
 
   return (
-    <section className="intro">
-      <div className="mt-12 mb-4 flex flex-col w-full items-center justify-center p-8">
+    <section className="intro relative">
+      <Starfield />
+      <div className="mb-4 flex flex-col w-full items-center justify-center p-8 relative z-10">
             <div className="mb-6 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-full flex items-center gap-2">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
@@ -82,8 +83,8 @@ const Intro = () => {
             </button>
       </div>
       </div>
-      <div className='my-4 flex flex-col items-center justify-center'>
-        <div className='mx-auto px-4 hidden md:flex max-w-5xl'>
+      <div className='my-4 flex flex-col items-center justify-center relative'>
+        <div className='mx-auto px-4 hidden md:flex max-w-5xl relative'>
             <img
                 ref={dashboardRef}
                 src="https://framerusercontent.com/images/XEmv5vqoiWWArC0PPHNUalrY10U.svg"
