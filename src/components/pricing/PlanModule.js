@@ -18,9 +18,9 @@ export default function PlanModule({
     const { t } = useTranslation();
 
     return (
-        <div className="flex flex-col w-full h-full border border-gray-300 rounded-lg p-4">
+        <div className="flex flex-col w-full h-full border border-gray-300 dark:border-dark-border rounded-lg p-4 bg-white dark:bg-dark-bg-secondary transition-colors duration-300">
             <div className="w-full">
-                <h2 className="text-2xl font-semibold text-center">{ t(planTitle) }</h2>
+                <h2 className="text-2xl font-semibold text-center text-white">{ t(planTitle) }</h2>
                 <div className="flex w-full h-72 text-center justify-center items-center py-auto">
                 {isSliderVisible ? (
                     <PricingSelector
@@ -48,7 +48,7 @@ export default function PlanModule({
                     </a>
                 </div>
             </div>
-            <div className="w-full h-full text-left list-disc text-gray-600 text-lg">{children}</div>
+            <div className="w-full h-full text-left list-disc text-gray-300 text-lg">{children}</div>
         </div>
     );
 }

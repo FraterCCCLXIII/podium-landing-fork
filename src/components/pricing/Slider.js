@@ -25,13 +25,13 @@ export default function Slider({ min, max, val, setVal }) {
                 max={max}
                 value={val}
                 step="1"
-                className="slider-thumb w-full appearance-none h-3 bg-gray-200 rounded-full"
+                className="slider-thumb w-full appearance-none h-3 bg-gray-200 dark:bg-gray-600 rounded-full"
                 onChange={(e) => {
                     setVal(parseInt(e.target.value));
                 }}
             />
             <div
-                className="slider-range absolute top-1/2 transform -translate-y-1/2 h-3 bg-indigo-600 rounded-full"
+                className="slider-range absolute top-1/2 transform -translate-y-1/2 h-3 bg-indigo-600 dark:bg-indigo-400 rounded-full"
                 ref={range}
             ></div>
 

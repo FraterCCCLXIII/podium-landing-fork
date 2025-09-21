@@ -105,11 +105,11 @@ export default function PricingPage() {
     }, []);
 
     return (
-        <div className="flex flex-col w-full items-center font-inter">
+        <div className="flex flex-col w-full items-center font-inter bg-white dark:bg-dark-bg transition-colors duration-300">
 
             <section className="px-4 my-16 flex flex-col items-center gap-12 w-full max-w-8xl">
                 <div>
-                    <h1 className="text-6xl font-semibold text-center mb-4">
+                    <h1 className="text-6xl font-semibold text-center mb-4 text-white">
                         {caughtLoggedInUser ? t("Choose your plan") : t("Pricing")}
                     </h1>
                 </div>
@@ -127,8 +127,8 @@ export default function PricingPage() {
                             }
                             planHeader={
                                 <div className="flex flex-col w-full text-center my-auto items-center h-fit">
-                                    <p className="text-4xl font-semibold">{t("Free to start")}</p>
-                                    <div className="text-gray-600 text-center mt-4">
+                                    <p className="text-4xl font-semibold text-white">{t("Free to start")}</p>
+                                    <div className="text-gray-300 text-center mt-4">
                                         <p>{t("3 hours free.")}</p>
                                         <p>{t("Take Longformer for a test spin!")}</p>
                                     </div>

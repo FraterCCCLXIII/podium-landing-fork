@@ -51,15 +51,15 @@ export function PlanHeader({ planTitle, isAnnual, selectedPlan, hasDynamicPrice 
         <div className="flex flex-col py-auto items-center text-center">
             {hasDynamicPrice ? (
                 <div>
-                    <p className="text-4xl font-semibold">
+                    <p className="text-4xl font-semibold text-white">
                         {isAnnual
                             ? selectedPlan?.getPrice({ period: "annually", printedPeriod: "perMonth" })
                             : selectedPlan?.getPrice({ period: "monthly", printedPeriod: "perMonth" })}
                     </p>
-                    <p className="text-base font-normal text-gray-500">{ t("USD Per Month") }</p>
+                    <p className="text-base font-normal text-gray-300">{ t("USD Per Month") }</p>
                 </div>
             ) : (
-                <h2>{planTitle}</h2>
+                <h2 className="text-white">{planTitle}</h2>
             )}
         </div>
     );
@@ -103,7 +103,7 @@ export default function PricingSelector({
     const { t } = useTranslation();
 
     return (
-        <div className="bg-white flex flex-col items-center gap-6 p-4 w-full">
+        <div className="bg-white dark:bg-dark-bg-secondary flex flex-col items-center gap-6 p-4 w-full transition-colors duration-300">
             <PlanHeader
                 planTitle={planTitle}
                 isAnnual={isAnnual}
@@ -126,15 +126,15 @@ export default function PricingSelector({
                 />
             </div>
 
-                <label className={`text-base ${isAnnual ? 'text-indigo-600' : 'text-teal-500'}`}>
+                <label className={`text-base ${isAnnual ? 'text-indigo-600 dark:text-indigo-400' : 'text-teal-500 dark:text-teal-400'}`}>
                     { t("Billed") } {isAnnual ? t("Yearly") : t("Monthly") }
                 </label>
             </div>
             <div className="w-full flex flex-col gap-4">
                 <Slider min={1} max={planOptions.options.length} val={selectedSliderIndex} setVal={setSelectedSliderIndex} />
-                <label className="text-center text-base font-medium">
+                <label className="text-center text-base font-medium text-white">
                     {selectedPlan?.quota} { t("hours / mo") }
-                    <p className="text-sm font-light text-gray-500">{ t("(slide to adjust)") }</p>
+                    <p className="text-sm font-light text-gray-300">{ t("(slide to adjust)") }</p>
                 </label>
             </div>
         </div>
