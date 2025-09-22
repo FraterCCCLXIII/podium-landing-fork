@@ -28,8 +28,8 @@ const Intro = () => {
           const currentScrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight * 0.6)));
           setScrollProgress(currentScrollProgress);
           
-          // Show carousel arrows when first image reaches 100% scale (center screen)
-          if (currentScrollProgress >= 1) {
+          // Show carousel arrows when first image reaches 80% scale
+          if (currentScrollProgress >= 0.8) {
             setShowCarouselArrows(true);
           } else {
             setShowCarouselArrows(false);

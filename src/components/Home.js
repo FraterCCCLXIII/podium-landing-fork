@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Intro from './Intro';
 import VideoTestimonials from './VideoTestimonials';
 import Features from './Features';
+import UseCasesSection from './UseCasesSection';
 import FeaturedOn from './FeaturedOn';
 import CTA from './CTA';
 import Testimonials1 from './Testimonials1';
@@ -36,6 +37,7 @@ const Home = () => {
         <div ref={featuresRef}> 
           <Features />
         </div>
+        <UseCasesSection />
         <ClipsSection />
         <VideoTestimonials />
         <div className='bg-white'>

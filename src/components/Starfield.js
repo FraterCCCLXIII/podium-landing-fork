@@ -40,7 +40,7 @@ const Starfield = () => {
       for (let i = 0; i < starsRef.current.length; i++) {
         const star = starsRef.current[i];
         // Move star based on warp speed - always forward
-        const speed = 1 + warpSpeedRef.current * 50;
+        const speed = 1 + warpSpeedRef.current * 80;
         star.z -= speed;
         // Reset star position when it passes the viewer
         if (star.z < 1) {
@@ -84,10 +84,11 @@ const Starfield = () => {
           // Calculate carousel scale progress (0 to 1)
           const carouselScrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight * 0.6)));
           
-          // Start fading out when carousel reaches 80% scale, complete fade at 100%
-          const fadeStart = 0.8;
+          // Start fading out when carousel reaches 90% scale, complete fade at 100%
+          const fadeStart = 0.90;
+          const fadeEnd = 1.0;
           if (carouselScrollProgress >= fadeStart) {
-            const fadeProgress = (carouselScrollProgress - fadeStart) / (1 - fadeStart);
+            const fadeProgress = (carouselScrollProgress - fadeStart) / (fadeEnd - fadeStart);
             starOpacity = Math.max(0, 1 - fadeProgress); // Fade from 1 to 0
           }
         } else {

@@ -38,14 +38,14 @@ body {
   background: #2a2a2a;
 }
 
-/* Enhanced dark theme button styles - exclude navigation, language buttons, FAQ buttons, carousel buttons, API docs button, and login button */
-.dark button:not(nav button):not(.language-button):not(.faq-button):not(.carousel-button):not(.api-docs-button):not(.login-button) {
+/* Enhanced dark theme button styles - exclude navigation, language buttons, FAQ buttons, carousel buttons, API docs button, login button, and use case buttons */
+.dark button:not(nav button):not(.language-button):not(.faq-button):not(.carousel-button):not(.api-docs-button):not(.login-button):not(.use-case-button) {
   border-radius: 0;
   background-color: white !important;
   color: black !important;
 }
 
-.dark button:not(nav button):not(.language-button):not(.faq-button):not(.carousel-button):not(.api-docs-button):not(.login-button):hover {
+.dark button:not(nav button):not(.language-button):not(.faq-button):not(.carousel-button):not(.api-docs-button):not(.login-button):not(.use-case-button):hover {
   background-color: #f0f0f0 !important;
 }
 
@@ -258,6 +258,17 @@ section .dropdown-menu.rounded-md {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

@@ -124,11 +124,10 @@ const ImageCarousel = ({ showArrows, scrollProgress = 0 }) => {
             <button
               onClick={prevImage}
               disabled={isTransitioning}
-              className="absolute -left-16 z-10 w-12 h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute -left-16 z-10 w-12 h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed transition-opacity duration-1000 ease-in-out"
               style={{ 
                 top: 'calc(50% - 130px)',
-                opacity: scrollProgress >= 0.8 ? Math.min(1, (scrollProgress - 0.8) / 0.2) : 0,
-                transition: 'opacity 3s ease-in-out'
+                opacity: scrollProgress >= 0.8 ? Math.min(1, (scrollProgress - 0.8) / 0.2) : 0
               }}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,11 +138,10 @@ const ImageCarousel = ({ showArrows, scrollProgress = 0 }) => {
             <button
               onClick={nextImage}
               disabled={isTransitioning}
-              className="absolute -right-16 z-10 w-12 h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute -right-16 z-10 w-12 h-12 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed transition-opacity duration-1000 ease-in-out"
               style={{ 
                 top: 'calc(50% - 130px)',
-                opacity: scrollProgress >= 0.8 ? Math.min(1, (scrollProgress - 0.8) / 0.2) : 0,
-                transition: 'opacity 3s ease-in-out'
+                opacity: scrollProgress >= 0.8 ? Math.min(1, (scrollProgress - 0.8) / 0.2) : 0
               }}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
