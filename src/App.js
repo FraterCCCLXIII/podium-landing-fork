@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './components/Home';
-import HomeDuplicate from './components/HomeDuplicate';
 import Pricing from './components/Pricing';
 import ApiPage from './components/api/Api';
 import Header from "./components/Header.js";
@@ -92,7 +91,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/home-duplicate" element={<HomeDuplicate />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/api" element={<ApiPage />} />
       </Routes>

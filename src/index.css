@@ -38,15 +38,26 @@ body {
   background: #2a2a2a;
 }
 
-/* Enhanced dark theme button styles - exclude navigation, language buttons, and FAQ buttons */
-.dark button:not(nav button):not(.language-button):not(.faq-button) {
+/* Enhanced dark theme button styles - exclude navigation, language buttons, FAQ buttons, carousel buttons, API docs button, and login button */
+.dark button:not(nav button):not(.language-button):not(.faq-button):not(.carousel-button):not(.api-docs-button):not(.login-button) {
   border-radius: 0;
   background-color: white !important;
   color: black !important;
 }
 
-.dark button:not(nav button):not(.language-button):not(.faq-button):hover {
+.dark button:not(nav button):not(.language-button):not(.faq-button):not(.carousel-button):not(.api-docs-button):not(.login-button):hover {
   background-color: #f0f0f0 !important;
+}
+
+/* Ensure carousel button borders are not overridden */
+.dark .carousel-button {
+  border-color: inherit !important;
+}
+
+/* Specific styling for active carousel buttons */
+.dark .carousel-button.border-2 {
+  border-color: white !important;
+  border-width: 2px !important;
 }
 
 /* Ensure logo is white in dark mode */
@@ -186,6 +197,89 @@ section .dropdown-menu.rounded-md {
   border-radius: 6px !important;
 }
 
+/* Enhanced carousel animations */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-away {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fade-out-shrink {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes fade-in-grow {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Tailwind animation classes */
+.animate-fade-out-shrink {
+  animation: fade-out-shrink 300ms ease-in-out forwards;
+}
+
+.animate-fade-in-grow {
+  animation: fade-in-grow 300ms ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-in-out forwards;
+}
+
+/* Carousel button hover effects */
+.carousel-button:hover {
+  transform: scale(1.02);
+}
+
+.carousel-button:active {
+  transform: scale(0.98);
+}
+
+/* Smooth transitions for carousel elements */
+.carousel-button {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 .dark section .dropdown-menu.rounded-md {
   border-radius: 6px !important;
 }
@@ -261,16 +355,17 @@ h1, h2, h3, h4, h5, h6 {
   animation: hideDashboard 1s ease-in-out forwards;
 }
 
-/* Pulsing gradient animation */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1);
-  }
+/* Login button styling to match navigation items */
+.login-button {
+  color: white !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.5rem !important;
+  transition: all 200ms !important;
+}
+
+.login-button:hover {
+  background-color: #4b5563 !important;
 }
 
 

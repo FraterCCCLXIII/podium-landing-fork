@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const LogoCarousel = () => {
+const TrustedBySection = () => {
   const containerRef = useRef(null);
   
   // White logo files from your project
@@ -46,23 +46,28 @@ const LogoCarousel = () => {
   }, []);
 
   return (
-    <div className="overflow-hidden py-4 relative z-10">
-      <div 
-        ref={containerRef}
-        className="flex items-center"
-      >
-        {duplicatedLogos.map((logo, index) => (
-          <div key={index} className="flex-shrink-0 mr-20">
-            <img 
-              src={logo} 
-              alt={`Logo ${index + 1}`}
-              className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
-            />
-          </div>
-        ))}
+    <section className="w-full mt-16">
+      <h2 className="text-black dark:text-white text-center text-xl font-semibold mb-4 px-8">
+        Trusted by leading companies
+      </h2>
+      <div className="overflow-hidden py-4">
+        <div 
+          ref={containerRef}
+          className="flex items-center"
+        >
+          {duplicatedLogos.map((logo, index) => (
+            <div key={index} className="flex-shrink-0 mr-20">
+              <img 
+                src={logo} 
+                alt={`Logo ${index + 1}`}
+                className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default LogoCarousel;
+export default TrustedBySection;

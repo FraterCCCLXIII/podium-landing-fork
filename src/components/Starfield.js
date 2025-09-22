@@ -72,24 +72,27 @@ const Starfield = () => {
       ctx.fillStyle = `rgba(0,0,0,${clearAlpha})`;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Check if stars should be visible (fade out when image is centered)
-      const dashboardImage = document.querySelector('.dashboard-image');
+      // Check if stars should be visible (fade out when carousel is centered and hide completely when past)
+      const carouselContainer = document.querySelector('.mx-auto.px-4.hidden.md\\:flex.max-w-5xl.relative');
       let starOpacity = 1;
       
-      if (dashboardImage) {
-        const rect = dashboardImage.getBoundingClientRect();
+      if (carouselContainer) {
+        const rect = carouselContainer.getBoundingClientRect();
         const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
         
         if (isInViewport) {
-          // Calculate image scale progress (0 to 1)
-          const imageScrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight * 0.6)));
+          // Calculate carousel scale progress (0 to 1)
+          const carouselScrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight * 0.6)));
           
-          // Start fading out when image reaches 80% scale, complete fade at 100%
+          // Start fading out when carousel reaches 80% scale, complete fade at 100%
           const fadeStart = 0.8;
-          if (imageScrollProgress >= fadeStart) {
-            const fadeProgress = (imageScrollProgress - fadeStart) / (1 - fadeStart);
+          if (carouselScrollProgress >= fadeStart) {
+            const fadeProgress = (carouselScrollProgress - fadeStart) / (1 - fadeStart);
             starOpacity = Math.max(0, 1 - fadeProgress); // Fade from 1 to 0
           }
+        } else {
+          // Completely hide stars when carousel is not in viewport (scrolled past)
+          starOpacity = 0;
         }
       }
 
@@ -154,40 +157,29 @@ const Starfield = () => {
       const maxScroll = window.innerHeight * 2; // Adjust this value to control when max speed is reached
       const scrollProgress = Math.min(scrollY / maxScroll, 1);
       
-      // Check if dashboard image is at 100% scale (center screen)
-      const dashboardImage = document.querySelector('.dashboard-image');
-      let imageAtCenter = false;
+      // Check if carousel is at 100% scale (center screen)
+      const carouselContainer = document.querySelector('.mx-auto.px-4.hidden.md\\:flex.max-w-5xl.relative');
+      let carouselAtCenter = false;
       
-      if (dashboardImage) {
-        const rect = dashboardImage.getBoundingClientRect();
+      if (carouselContainer) {
+        const rect = carouselContainer.getBoundingClientRect();
         const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
         
         if (isInViewport) {
-          // Calculate image scale progress (0 to 1)
-          const imageScrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight * 0.6)));
-          imageAtCenter = imageScrollProgress >= 1; // Image is at 100% scale
+          // Calculate carousel scale progress (0 to 1)
+          const carouselScrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight * 0.6)));
+          carouselAtCenter = carouselScrollProgress >= 1; // Carousel is at 100% scale
         }
       }
       
       // Calculate warp speed based on scroll progress
-      // Start slow at top, get super fast in middle, then stop when image is centered
-      if (imageAtCenter) {
+      // Linear progression: slow at top, gradually faster as you scroll down
+      if (carouselAtCenter) {
         warpSpeedRef.current = 0; // Stop generating stars
       } else {
-        // Create a curve that starts slow, peaks fast in middle, then slows down
-        const midPoint = 0.5; // Peak speed at 50% scroll
-        let speed;
-        
-        if (scrollProgress <= midPoint) {
-          // First half: accelerate from 0 to max speed
-          speed = (scrollProgress / midPoint) * 3; // Scale up to 3x speed
-        } else {
-          // Second half: decelerate from max speed to normal
-          const secondHalfProgress = (scrollProgress - midPoint) / (1 - midPoint);
-          speed = 3 - (secondHalfProgress * 2); // Go from 3x to 1x speed
-        }
-        
-        warpSpeedRef.current = Math.max(0, Math.min(speed, 3)); // Clamp between 0 and 3
+        // Simple linear progression from 0 to max speed based on scroll position
+        const maxSpeed = 3;
+        warpSpeedRef.current = Math.max(0, Math.min(scrollProgress * maxSpeed, maxSpeed));
       }
     };
 

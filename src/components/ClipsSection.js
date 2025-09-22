@@ -14,7 +14,7 @@ const Clips = () => {
             <p className='mt-4 text-xl font-light text-gray-600'>{t('Create AI suggested or your own clips from your content... in minutes.')}</p>
         </div>
         <div className='flex flex-col w-full items-center justify-center px-4 py-8 max-w-5xl mx-auto gap-8'>
-            <div className='flex flex-col sm:flex-row w-full items-center py-4 sm:py-12 justify-between sm:space-x-8 rounded-lg border border-gray-200'>
+            <div className='flex flex-col sm:flex-row w-full items-center py-4 sm:py-12 justify-between sm:space-x-8 rounded-lg border border-gray-200 bg-gray-50'>
                 <div className='flex flex-col w-full gap-2 p-8'>
                     <span className='text-xl font-semibold text-black'>Instant Clip Generation</span>
                     <span className='text-lg font-light text-gray-600'>Easily transform engaging segments of your podcast into clips without needing external tools. Longformer will find interesting content for you. If you want to create one yourself just highlight text in your transcript to create a new clip.</span>
@@ -25,7 +25,7 @@ const Clips = () => {
                         autoPlay
                         loop
                         playsInline
-                        className='rounded-md aspect-[8/5] object-cover object-center border-gray-100 shadow-md '
+                        className='rounded-md aspect-[8/5] object-cover object-center border-gray-100 shadow-md animate-fade-in'
                     />
                 </div>
             </div>
@@ -37,7 +37,7 @@ const Clips = () => {
                         loop
                         playsInline
                         style={{ width: "100%", height: "auto" }}
-                        className='rounded-lg border-gray-100 shadow-md'
+                        className='rounded-lg border-gray-100 shadow-md animate-fade-in'
                     />
                     <div className='flex flex-col w-full h-full gap-2'>
                         <span className='text-xl font-semibold text-black'>Full Customization</span>

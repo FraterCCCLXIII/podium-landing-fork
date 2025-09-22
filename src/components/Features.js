@@ -74,13 +74,14 @@ const Features = () => {
         <div className='flex w-full items-center justify-center px-4 py-8 max-w-5xl mx-auto'>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {featuresList.map((feature, index) => (
-                <div key={index} className="bg-white shadow-md border border-gray-200 rounded-lg p-6 flex flex-col w-full max-w-sm">
+                <div 
+                  key={index} 
+                  className="bg-gray-50 shadow-md border border-gray-200 rounded-lg p-6 flex flex-col w-full max-w-sm cursor-pointer transition-transform duration-300 hover:scale-105"
+                  onClick={() => window.location.href = 'https://podium.page/create-account/'}
+                >
                     <div className='h-12 w-12'>{feature.icon}</div>
                     <h3 className="mt-4 text-xl font-semibold text-black">{t(feature.name)}</h3>
                     <p className="mt-2 text-lg text-gray-600 font-light">{t(feature.description)}</p>
-                    <a href='https://podium.page/create-account/' className="mt-4 text-indigo-600 hover:text-indigo-500">
-                      {t('Try it now →')}
-                    </a>
                 </div>
               ))}
             </div>

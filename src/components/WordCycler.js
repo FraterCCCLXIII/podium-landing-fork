@@ -67,7 +67,7 @@ const WordCycler = ({ words, delays = [], defaultDelay = 2000 }) => {
   }, [currentIndex, currentDelay, delays, defaultDelay, words.length]);
 
   return (
-    <div className="h-10 md:h-16 lg:h-20 overflow-hidden relative text-2xl md:text-4xl lg:text-6xl items-center justify-center text-center font-medium text-indigo-600 dark:text-indigo-400">
+    <div className="h-10 md:h-16 lg:h-20 overflow-hidden relative text-4xl md:text-4xl lg:text-6xl items-center justify-center text-center font-medium text-indigo-600 dark:text-indigo-400">
       <div
         className={`w-full items-center justify-center ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
         style={{

@@ -47,33 +47,30 @@ const Header = () => {
         </div>
 
         {/* Menu for Screens larger than sm */}
-        <div className="hidden md:flex flex-1 justify-between items-center">
-          <div></div> {/* Empty to keep middle and right parts centered */}
-          <div className="flex items-center space-x-8">
+        <div className="hidden md:flex flex-1 justify-center items-center">
+          <nav className="flex space-x-8">
+              <button className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => navigate('/#features')}>{t('What you get')}</button>
+              <button 
+                className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200"
+                onClick={() => navigate('/pricing')}
+              >
+                {t('Pricing')}
+              </button>
+              <button  
+                className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200"
+                onClick={() => navigate('/api')}
+              >
+                {t('API')}</button>
+          </nav>
+        </div>
+        
+        {/* Right side with language, login, and try button */}
+        <div className="hidden md:flex items-center space-x-4">
+          <div className="scale-75">
             <Language />
-            <nav className="flex space-x-8">
-                <button className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => navigate('/#features')}>{t('What you get')}</button>
-                <button 
-                  className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200"
-                  onClick={() => navigate('/home-duplicate')}
-                >
-                  {t('Home Duplicate')}
-                </button>
-                <button 
-                  className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200"
-                  onClick={() => navigate('/pricing')}
-                >
-                  {t('Pricing')}
-                </button>
-                <button  
-                  className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200"
-                  onClick={() => navigate('/api')}
-                >
-                  {t('API')}</button>
-                <button className="text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://podium.page/login'}>{t('Log In')}</button>
-            </nav>
-            <button className='flex h-10 w-fit px-4 bg-white dark:bg-white text-black text-base font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-100 transition-colors duration-200 items-center justify-center' onClick={() => window.location.href = 'https://podium.page/create-account'}>{t('Try it now')}</button>
           </div>
+          <button className="login-button text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://podium.page/login'}>{t('Log In')}</button>
+          <button className='flex h-10 w-fit px-4 bg-white dark:bg-white text-black text-base font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-100 transition-colors duration-200 items-center justify-center' onClick={() => window.location.href = 'https://podium.page/create-account'}>{t('Try it now')}</button>
         </div>
 
         {/* Hamburger Menu for Mobile */}
@@ -100,7 +97,6 @@ const Header = () => {
       {menuOpen && (
         <div className="sm:hidden fixed inset-0 top-20 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-md flex flex-col justify-left text-left text-gray-400 dark:text-dark-text">
           <nav className="flex w-full flex-col space-y-6 text-lg items-left justify-left p-4">
-            <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => navigate('/home-duplicate')}>{t('Home Duplicate')}</button>
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/pricing'}>{t('Pricing')}</button>
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/api'}>{t('API')}</button>
             <button className="text-left text-white font-medium px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" onClick={() => window.location.href = 'https://hello.podium.page/blog'}>{t('Resources')}</button>

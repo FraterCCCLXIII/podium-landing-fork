@@ -11,23 +11,18 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  // Default to dark theme
-  const [theme, setTheme] = useState('dark');
-
-  useEffect(() => {
-    // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      // Default to dark theme
-      setTheme('dark');
-      localStorage.setItem('theme', 'dark');
+  // Initialize with dark theme immediately to prevent flash
+  const [theme, setTheme] = useState(() => {
+    // Check localStorage first, but default to dark if not found
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      return savedTheme || 'dark';
     }
-  }, []);
+    return 'dark';
+  });
 
   useEffect(() => {
-    // Apply theme to document
+    // Apply theme immediately on mount
     document.documentElement.setAttribute('data-theme', theme);
     
     // Update Tailwind's dark mode class
@@ -36,6 +31,9 @@ export const ThemeProvider = ({ children }) => {
     } else {
       document.documentElement.classList.remove('dark');
     }
+    
+    // Save to localStorage
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
