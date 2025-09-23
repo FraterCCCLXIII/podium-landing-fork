@@ -6,6 +6,8 @@ import ApiPage from './components/api/Api';
 import Header from "./components/Header.js";
 import LoggedInHeader from './components/LoggedInHeader.js';
 import Footer from "./components/Footer.js";
+import CTA from "./components/CTA.js";
+import { ThemeProvider } from './contexts/ThemeContext.js';
 
 function App() {
   const location = useLocation(); // Get the current location
@@ -69,7 +71,7 @@ function App() {
   }, []); // Only run once when the app is initialized
 
   return (
-    <>
+    <div className="min-h-screen bg-white dark:bg-dark-bg transition-colors duration-300">
       <noscript>
         <iframe 
           src="https://www.googletagmanager.com/ns.html?id=GTM-NCHCWM2" 
@@ -93,17 +95,21 @@ function App() {
         <Route path="/api" element={<ApiPage />} />
       </Routes>
 
-      <footer className="border-t border-gray-300">
+      <CTA />
+
+      <footer className="border-t border-gray-300 dark:border-dark-border bg-white dark:bg-dark-bg-secondary transition-colors duration-300">
         <Footer />
       </footer>
-    </>
+    </div>
   );
 }
 
 export default function AppWrapper() {
   return (
-    <Router>
-      <App />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <App />
+      </Router>
+    </ThemeProvider>
   );
 }

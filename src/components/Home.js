@@ -3,13 +3,13 @@ import { useLocation } from 'react-router-dom';
 import Intro from './Intro';
 import VideoTestimonials from './VideoTestimonials';
 import Features from './Features';
+import UseCasesSection from './UseCasesSection';
 import FeaturedOn from './FeaturedOn';
 import CTA from './CTA';
 import Testimonials1 from './Testimonials1';
-import Testimonials2 from './Testimonials2';
 import Faqs from './Faqs';
 import ApiSection from './ApiSection';
-import Clips from './ClipsSection';
+import ClipsSection from './ClipsSection';
 import Calculator from './Calculator';
 
 const Home = () => {
@@ -34,22 +34,21 @@ const Home = () => {
     <div className="Home">
       <main>
         <Intro />
-        <VideoTestimonials />
-        <div ref={featuresRef}> {/* Attach ref to Features section */}
+        <div ref={featuresRef}> 
           <Features />
         </div>
+        <UseCasesSection />
+        <ClipsSection />
+        <VideoTestimonials />
         <div className='bg-white'>
           <Calculator />
         </div>
-        <Clips />
         <FeaturedOn />
         <CTA />
         <div className='bg-gray-50'>
           <Testimonials1 />
         </div>
         <Faqs />
-        <Testimonials2 />
-        <CTA />
         <ApiSection />
       </main>
     </div>

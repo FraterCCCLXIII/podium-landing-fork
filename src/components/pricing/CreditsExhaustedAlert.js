@@ -12,7 +12,7 @@ export default function CreditsExhaustedAlert() {
     }, []);
 
     return isVisible ? (
-        <div className="text-center text-indigo-600 text-xl leading-relaxed w-full">
+        <div className="text-center text-indigo-600 dark:text-indigo-400 text-xl leading-relaxed w-full">
             <p>
                 <strong>Unfortunately, you're out of credits.</strong>
             </p>

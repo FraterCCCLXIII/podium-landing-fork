@@ -17,7 +17,7 @@ const Slideshow = () => {
   }, [images.length]);
 
   return (
-    <div className="relative w-full aspect-[94/59] overflow-hidden">
+    <div className="relative w-full aspect-[94/59] overflow-hidden animate-fade-in">
       {images.map((image, index) => (
         <div
           key={index}

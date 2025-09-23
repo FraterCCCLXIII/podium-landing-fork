@@ -32,3 +32,125 @@ main {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Dashboard image scroll-based animation */
+.dashboard-image {
+  /* Initial state - visible with 3D tilt effect */
+  transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) translateY(50px) scale(0.8);
+  opacity: 1 !important; /* Force visible */
+  visibility: visible !important; /* Force visible */
+  will-change: transform; /* Optimize for transform animations */
+  transform-style: preserve-3d; /* Enable 3D transforms */
+  transition: none; /* No transition delay for instant scroll response */
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1)); /* Subtle shadow */
+  border-radius: 12px; /* Rounded corners */
+  overflow: hidden; /* Ensure rounded corners work */
+}
+
+/* Animation to hide dashboard image */
+@keyframes hideDashboard {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1);
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+  }
+  50% {
+    opacity: 0.5;
+    transform: perspective(1000px) rotateX(7deg) rotateY(-5deg) translateY(25px) scale(0.9);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.05));
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) translateY(50px) scale(0.8);
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.02));
+  }
+}
+
+.dashboard-image.hide-animation {
+  animation: hideDashboard 0.5s ease-out forwards;
+}
+
+/* Show animation for dashboard image */
+@keyframes showDashboard {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) translateY(50px) scale(0.8);
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.02));
+  }
+  50% {
+    opacity: 0.5;
+    transform: perspective(1000px) rotateX(7deg) rotateY(-5deg) translateY(25px) scale(0.9);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.05));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1);
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+  }
+}
+
+.dashboard-image.show-animation {
+  animation: showDashboard 0.5s ease-out forwards;
+}
+
+/* Hover effect for dashboard image */
+.dashboard-image:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-3deg) translateY(20px) scale(1.05) !important;
+  transition: transform 0.1s ease-out;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
+}
+
+/* Logo carousel scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes logoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 25s linear infinite !important;
+  display: flex !important;
+  width: max-content !important;
+}
+
+/* Pause animation on hover */
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Force gradient button to be white in dark mode */
+.dark .gradient-button {
+  background: white !important;
+  color: black !important;
+  background-image: none !important;
+}
+
+/* Additional specificity for dark mode button */
+html.dark .gradient-button {
+  background: white !important;
+  color: black !important;
+  background-image: none !important;
+}
+
+/* Data theme selector for extra specificity */
+[data-theme="dark"] .gradient-button {
+  background: white !important;
+  color: black !important;
+  background-image: none !important;
+}

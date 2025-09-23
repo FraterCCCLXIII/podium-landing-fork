@@ -105,11 +105,11 @@ export default function PricingPage() {
     }, []);
 
     return (
-        <div className="flex flex-col w-full items-center font-inter">
+        <div className="flex flex-col w-full items-center font-inter bg-white dark:bg-dark-bg transition-colors duration-300">
 
             <section className="px-4 my-16 flex flex-col items-center gap-12 w-full max-w-8xl">
                 <div>
-                    <h1 className="text-6xl font-semibold text-center mb-4">
+                    <h1 className="text-6xl font-semibold text-center mb-4 text-white">
                         {caughtLoggedInUser ? t("Choose your plan") : t("Pricing")}
                     </h1>
                 </div>
@@ -123,12 +123,12 @@ export default function PricingPage() {
                             ctaHrefOverride="https://podium.page/create-account"
                             planTitle="Trial"
                             ctaOverride={
-                                <div className="flex py-2 h-fit w-full bg-black text-center justify-center px-auto rounded-lg text-white border-2 border-black hover:bg-white hover:text-black cursor-pointer text-2xl font-medium">{ t("Try it free") }</div>
+                                <div className="flex py-2 h-fit w-full bg-black dark:bg-white text-center justify-center px-auto rounded-lg text-white dark:text-black border-2 border-black dark:border-gray-300 hover:bg-white dark:hover:bg-gray-100 hover:text-black dark:hover:text-black cursor-pointer text-2xl font-medium transition-colors duration-200">{ t("Try it free") }</div>
                             }
                             planHeader={
                                 <div className="flex flex-col w-full text-center my-auto items-center h-fit">
-                                    <p className="text-4xl font-semibold">{t("Free to start")}</p>
-                                    <div className="text-gray-600 text-center mt-4">
+                                    <p className="text-4xl font-semibold text-white">{t("Free to start")}</p>
+                                    <div className="text-gray-300 text-center mt-4">
                                         <p>{t("3 hours free.")}</p>
                                         <p>{t("Take Longformer for a test spin!")}</p>
                                     </div>
@@ -179,7 +179,7 @@ export default function PricingPage() {
                         isSliderVisible={false}
                         planTitle="Enterprise"
                         ctaOverride={
-                            <div className="flex py-2 h-fit w-full bg-white text-center justify-center px-auto rounded-lg text-black border-2 border-black hover:bg-black hover:text-white cursor-pointer text-2xl font-medium" onClick={() => {
+                            <div className="flex py-2 h-fit w-full bg-white dark:bg-white text-center justify-center px-auto rounded-lg text-black dark:text-black border-2 border-black dark:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-100 hover:text-black dark:hover:text-black cursor-pointer text-2xl font-medium transition-colors duration-200" onClick={() => {
                                 if (window.Intercom) {
                                   window.Intercom("show");
                                 }
